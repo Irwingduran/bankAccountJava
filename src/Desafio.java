@@ -1,65 +1,63 @@
 import java.util.Scanner;
 
 public class Desafio {
+
     public static void main(String[] args) {
-        String nombre = "Juan Perez";
-        String tipoDeCuenta = "Corriente";
-        double saldo = 1599.99;
+        String Nombre = "Juan Alberto";
+        String TipoDeCuenta = "Corriente";
+        double SaldoDeCuenta = 1599.99;
         int opcion = 0;
 
-        System.out.println("*****************************************");
-        System.out.println("\nNombre del cliente: " + nombre);
-        System.out.println("Tipo de cuenta: " + tipoDeCuenta);
-        System.out.println("Saldo disponible: " + saldo);
-        System.out.println("\n*****************************************");
+        System.out.println("*********************");
 
-        //Fin de la primera parte Iniciando los valores de la cuenta
+        System.out.println("\nNombre: " + Nombre);
+        System.out.println("Tipo de Cuenta: " + TipoDeCuenta);
+        System.out.println("Saldo Actual: " + "$" + SaldoDeCuenta);
+
+        System.out.println("\n*********************");
 
         String menu = """
-                ** Escriba el número de la opción deseada **
-                1 - Consultar saldo
-                2 - Retirar
-                3 - Depositar
-                9 - Salir
+                Escribe la opción que deseas ejecutar:
+                1.- Consultar Saldo
+                2.- Retirar
+                3.- Depositar
+                9.- Salir
                 """;
         Scanner teclado = new Scanner(System.in);
-
-        while (opcion != 9){
+        while (opcion != 9) {
             System.out.println(menu);
             opcion = teclado.nextInt();
 
-//Fin de la segunda parte montando el menú de opciones
-
-
-            switch (opcion){
+            switch (opcion) {
                 case 1:
-                    System.out.println("El saldo actualizado es: " + saldo + " $");
+                    System.out.println("El saldo actualizado es: " + "$" + SaldoDeCuenta);
                     break;
                 case 2:
-                    System.out.println("Cuál es el valor que deseas retirar?");
-                    double valorARetirar = teclado.nextDouble();
-                    if (valorARetirar > saldo){
+                    System.out.println("¿Cuanto deseas retirar? ");
+                    double CantidadARetirar = teclado.nextDouble();
+                    if (CantidadARetirar > SaldoDeCuenta ){
                         System.out.println("Saldo insuficiente");
-                    } else {
-                       saldo = saldo - valorARetirar;
-                        System.out.println("Saldo restante: " + saldo + " $");
+                    }else{
+                        SaldoDeCuenta = SaldoDeCuenta - CantidadARetirar;
+                        System.out.println("El saldo actualizado es: " + SaldoDeCuenta);
                     }
                     break;
                 case 3:
-                    System.out.println("Cuál es el valor que vas a depositar?");
-                    double valorADepositar = teclado.nextDouble();
-                    saldo += valorADepositar;
-                    System.out.println("El saldo actualizado es: " + saldo + " $");
+                    System.out.println("¿Que cantidad deseas depositar? ");
+                    double CantidadADepositar = teclado.nextDouble();
+                    SaldoDeCuenta += CantidadADepositar;
+                    System.out.println("El saldo actualizado es: " + "$" + SaldoDeCuenta);
                     break;
                 case 9:
-                    System.out.println("Finalizando el programa. Muchas gracias por usar nuestros servicios");
+                    System.out.println("Gracias por consultar, nos vemos luego");
                     break;
                 default:
-                    System.out.println("Opción inválida");
+                    System.out.println("Opcion no valida, intente de nuevo");
                     break;
             }
+
         }
 
-        //Fin de la tercera parte implementando los cálculos
-    }
+        }
+
 }
